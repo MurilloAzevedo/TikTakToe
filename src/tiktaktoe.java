@@ -8,7 +8,7 @@ public class tiktaktoe{
 //        String[][] board = new String[4][4]; //board 3x3
 //        int menu = 0;
 //
-//        board[1][1]=" ";
+//      board[1][1]=" ";
 //		board[1][2]=" ";
 //		board[1][3]=" ";
 //		board[2][1]=" ";
