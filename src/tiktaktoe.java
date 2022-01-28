@@ -1,7 +1,10 @@
 import java.util.Scanner;
 
 public class tiktaktoe{
+    static int I = 0;
+
     public static void main(String[] args) {
+
 
         Scanner s = new Scanner(System.in);
         int menu = 0;
@@ -12,7 +15,7 @@ public class tiktaktoe{
         System.out.println("2. Instruction");
         System.out.println("3. Exit \n");
 
-        System.out.println("Enter your option:");
+        System.out.print("Enter your option: ");
         menu = s.nextInt();
 
         if (menu == 2){
