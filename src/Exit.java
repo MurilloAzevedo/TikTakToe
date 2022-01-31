@@ -1,9 +1,8 @@
-public class exit {
+public class Exit {
 
-    public static void Exit(){
+    public void Exit(){
         System.out.print("Thank you for playing");
         System.exit(0);
-
     }
 
 }
