@@ -12,38 +12,58 @@ public class Board {
 
         Initialize();
         Print();
+        Turn();
 
     }
 
     static void Turn(){
         int p1, p2;
+        int[] x = new int[1];
 
         for (;TURN < 10 ; TURN++){
 
             if (TURN%2 == 0) {
                 System.out.print(Game.PLAYER1 +  " Turn : ");
                 p1 = SCANNER.nextInt();
-                Verification();
+                if (Verification(Position(p1))){
+                    x[] = Position(p1);
+                    BOARD[x[0]][x[1]] = "X";
+                }
+                Print();
+
             }else{
                 System.out.print(Game.PLAYER2 +  " Turn : ");
                 p2 = SCANNER.nextInt();
+                if (Verification(Position(p2))){
+                    x[] = Position(p2);
+                    BOARD[x[0]][x[1]] = "0";
+                }
                 System.out.println();
             }
         }
     }
 
-    static void Verification(){
+    static int[] Position(int var){
+        int x = 0, y = 0;
 
         for (int i = 0; i < LINHA; i++){
             for (int j = 0; j < COLUNA; j++){
-
-                if (BOARD[i][j] != "X" || BOARD[i][j] != "0" ){
-
-
-                }else {
-                    System.out.println("Mensagem");
+                if(BOARD[i][j] == String.valueOf(var)){
+                    x = i;
+                    y = j;
                 }
             }
+        }
+        return new int[] {x, y};
+    }
+
+    static boolean Verification(int[] x){
+
+        if (BOARD[x[0]][x[1]] != "X" || BOARD[x[0]][x[1]] != "0" ){
+            return true;
+        }else{
+            System.out.println("Mensagem");
+            return false;
         }
     }
 
