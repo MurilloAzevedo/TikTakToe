@@ -33,7 +33,7 @@ public class Board {
     }
 
     static void Verification(){
-        
+
         for (int i = 0; i < LINHA; i++){
             for (int j = 0; j < COLUNA; j++){
 
