@@ -27,37 +27,30 @@ public class Board {
             if (TURN%2 == 0) {
                 System.out.print(Game.PLAYER1 +  " Turn : ");
                 p1 = SCANNER.nextInt();
-                System.out.println(p1);
                 if (Verification(Position(p1))){
-                    BOARD[POSITIONX][POSITIONY] = "X";
+                    Print();
                 }
-                Print();
-
             }else{
                 System.out.print(Game.PLAYER2 +  " Turn : ");
                 p2 = SCANNER.nextInt();
-                System.out.println(p2);
                 if (Verification(Position(p2))){
-                    BOARD[POSITIONX][POSITIONY] = "0";
+                    Print();
                 }
-                Print();
                 System.out.println();
             }
         }
     }
 
     static int[] Position(int var){
-        System.out.println(var);
 
         for (int i = 0; i < LINHA; i++){
             for (int j = 0; j < COLUNA; j++){
-                if(BOARDInit[i][j] == String.valueOf(var)){
+                if(BOARDInit[i][j].equals(Integer.toString(var))){ //Não se compara Strings com "=="
                     POSITIONX = i;
                     POSITIONY = j;
                 }
             }
         }
-        System.out.println(POSITIONX +" "+ POSITIONY);
         return new int[] {POSITIONX, POSITIONY};
     }
 
@@ -75,30 +68,28 @@ public class Board {
         for (int l = 0; l < LINHA; l++) {
             for(int c = 0; c < COLUNA; c++) {
 
-                 if (c % 2 != 0 && l%2 ==0) {
+                if (c % 2 == 0 && l%2 == 0) {
+
+                    if (TURN%2 == 0 && TURN > 0 && POSITIONX == l && POSITIONY == c) {
+                        BOARD[POSITIONX][POSITIONY] = "X";
+                        System.out.print(BOARD[POSITIONX][POSITIONY]);
+                    }else if (TURN%2 != 0 && POSITIONX == l && POSITIONY == c){
+                        BOARD[POSITIONX][POSITIONY] = "0";
+                        System.out.print(BOARD[POSITIONX][POSITIONY]);
+                    } else if(c % 2 == 0 && l%2 == 0) {
+                        System.out.print(BOARD[l][c] = String.valueOf(" "));
+                    }
+
+                }else if (c % 2 != 0 && l%2 ==0) {
                     System.out.print(BOARD[l][c] = "|");
 
-                } else if (c % 2 == 0 && l%2 == 0) {
-
-                     if (TURN%2 == 0 && TURN > 0 && POSITIONX == l && POSITIONY == c) {
-                         BOARD[POSITIONX][POSITIONY] = "X";
-                         System.out.print(BOARD[POSITIONX][POSITIONY]);
-                     }else if (TURN%2 != 0 && POSITIONX == l && POSITIONY == c){
-                         BOARD[POSITIONX][POSITIONY] = "0";
-                         System.out.print(BOARD[POSITIONX][POSITIONY]);
-                     } else if(c % 2 == 0 && l%2 == 0) {
-                         System.out.print(BOARD[l][c] = String.valueOf(" "));
-                     }
-
-                }else if(l%2 != 0){
+                } else if(l%2 != 0){
                     System.out.print(BOARD[l][c] = "-");
                 }
             }
-
             System.out.println();
         }
         System.out.println();
-        System.out.println(POSITIONX +" "+ POSITIONY);
     }
 
     static void Initialize(){
