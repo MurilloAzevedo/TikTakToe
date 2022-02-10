@@ -20,7 +20,6 @@ public class Board {
 
     static void Turn(){
         int p1, p2;
-        int[] x = new int[1];
 
         for (;TURN < 10 ; TURN++){
 
@@ -28,16 +27,17 @@ public class Board {
                 System.out.print(Game.PLAYER1 +  " Turn : ");
                 p1 = SCANNER.nextInt();
                 if (Verification(Position(p1))){
-                    Print();
+                    BOARD[POSITIONX][POSITIONY] = "X";
                 }
             }else{
                 System.out.print(Game.PLAYER2 +  " Turn : ");
                 p2 = SCANNER.nextInt();
                 if (Verification(Position(p2))){
-                    Print();
+                    BOARD[POSITIONX][POSITIONY] = "0";
                 }
                 System.out.println();
             }
+            Print();
         }
     }
 
@@ -67,18 +67,13 @@ public class Board {
     static void Print(){
         for (int l = 0; l < LINHA; l++) {
             for(int c = 0; c < COLUNA; c++) {
-
                 if (c % 2 == 0 && l%2 == 0) {
 
-                    if (TURN%2 == 0 && TURN > 0 && POSITIONX == l && POSITIONY == c) {
-                        BOARD[POSITIONX][POSITIONY] = "X";
-                        System.out.print(BOARD[POSITIONX][POSITIONY]);
-                    }else if (TURN%2 != 0 && POSITIONX == l && POSITIONY == c){
-                        BOARD[POSITIONX][POSITIONY] = "0";
-                        System.out.print(BOARD[POSITIONX][POSITIONY]);
-                    } else if(c % 2 == 0 && l%2 == 0) {
-                        System.out.print(BOARD[l][c] = String.valueOf(" "));
-                    }
+                     if(BOARD[l][c] == null) {
+                        System.out.print(BOARD[l][c] = " ");
+                    }else {
+                         System.out.print(BOARD[l][c]);
+                     }
 
                 }else if (c % 2 != 0 && l%2 ==0) {
                     System.out.print(BOARD[l][c] = "|");
@@ -97,7 +92,7 @@ public class Board {
         for (int l = 0; l < LINHA; l++) {
             for(int c = 0; c < COLUNA; c++) {
 
-                if (c % 2 != 0 && l%2 ==0) {
+                if (c % 2 != 0 && l%2 == 0) {
                     BOARDInit[l][c] = "|";
 
                 } else if (c % 2 == 0 && l%2 == 0) {
