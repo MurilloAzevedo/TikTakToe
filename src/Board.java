@@ -21,19 +21,21 @@ public class Board {
     static void Turn(){
         int p1, p2;
 
-        for (;TURN < 10 ; TURN++){
+        for (;TURN < 9 ; TURN++){
 
             if (TURN%2 == 0) {
                 System.out.print(Game.PLAYER1 +  " Turn : ");
                 p1 = SCANNER.nextInt();
                 if (Verification(Position(p1))){
                     BOARD[POSITIONX][POSITIONY] = "X";
+                    Winner(Position(p1));
                 }
             }else{
                 System.out.print(Game.PLAYER2 +  " Turn : ");
                 p2 = SCANNER.nextInt();
                 if (Verification(Position(p2))){
                     BOARD[POSITIONX][POSITIONY] = "0";
+                    Winner(Position(p2));
                 }
                 System.out.println();
             }
@@ -56,11 +58,11 @@ public class Board {
 
     static boolean Verification(int[] x){
 
-        if (BOARD[x[0]][x[1]] != "X" || BOARD[x[0]][x[1]] != "0" ){
-            return true;
-        }else{
+        if (BOARD[x[0]][x[1]].equals("X")  || BOARD[x[0]][x[1]].equals("0")){
             System.out.println("Mensagem");
             return false;
+        }else{
+            return true;
         }
     }
 
@@ -105,4 +107,62 @@ public class Board {
             }
         }
     }
+
+    static boolean Winner(int[] x){
+        int aux = 0;
+        Exit exit = new Exit();
+        boolean winner = false;
+
+        switch (aux){
+            case 0:
+                if(BOARD[0][0].equals(BOARD[0][2]) && BOARD[0][0].equals(BOARD[0][4])){
+                    Print();
+                    winner = true;
+                    if (TURN%2 == 0){
+                        System.out.println("The winner is " + Game.PLAYER1);
+                        exit.Exit();
+                        }else{
+                            System.out.println("The winner is " + Game.PLAYER2);
+                            exit.Exit();
+                        }
+                    } break;
+            case 1:
+                if(BOARD[2][0].equals(BOARD[2][2]) && BOARD[2][0].equals(BOARD[2][4])){
+                    Print();
+                    winner = true;
+                    if (TURN%2 == 0){
+                        System.out.println("The winner is " + Game.PLAYER1);
+                        exit.Exit();
+                    }else{
+                        System.out.println("The winner is " + Game.PLAYER2);
+                        exit.Exit();
+                    }
+                } break;
+//            case 2:
+//                if(BOARD[4][0].equals(BOARD[4][2]) && BOARD[4][0].equals(BOARD[4][4])){
+//                    Print();
+//                    winner = true;
+//                    if (TURN%2 == 0){
+//                        System.out.println("The winner is " + Game.PLAYER1);
+//                        exit.Exit();
+//                    }else{
+//                        System.out.println("The winner is " + Game.PLAYER2);
+//                        exit.Exit();
+//                    }
+//                } break;
+//            case 3:
+//                if(BOARD[0][0].equals(BOARD[2][0]) && BOARD[0][0].equals(BOARD[4][0])){
+//                    Print();
+//                    winner = true;
+//                    if (TURN%2 == 0){
+//                        System.out.println("The winner is " + Game.PLAYER1);
+//                        exit.Exit();
+//                    }else{
+//                        System.out.println("The winner is " + Game.PLAYER2);
+//                        exit.Exit();
+//                    }
+//                } break;
+               }
+            return winner;
+        }
 }
