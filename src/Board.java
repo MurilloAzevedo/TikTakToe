@@ -108,61 +108,53 @@ public class Board {
         }
     }
 
-    static boolean Winner(int[] x){
-        int aux = 0;
+    static boolean Winner(int[] x) {
+
         Exit exit = new Exit();
+
         boolean winner = false;
 
-        switch (aux){
-            case 0:
-                if(BOARD[0][0].equals(BOARD[0][2]) && BOARD[0][0].equals(BOARD[0][4])){
-                    Print();
-                    winner = true;
-                    if (TURN%2 == 0){
-                        System.out.println("The winner is " + Game.PLAYER1);
-                        exit.Exit();
+                    if (BOARD[0][0].equals(BOARD[0][2]) && BOARD[0][0].equals(BOARD[0][4]) && BOARD[0][0].equals("X")) {
+                        Print();
+                        winner = true;
+                        if (TURN % 2 == 0) {
+                            System.out.println("The winner is " + Game.PLAYER1);
+                            exit.Exit();
+                        } else {
+                            System.out.println("The winner is " + Game.PLAYER2);
+                            exit.Exit();
+                        }
+                    }else if (BOARD[2][0].equals(BOARD[2][2]) && BOARD[2][0].equals(BOARD[2][4]) && BOARD[0][0].equals("X")) {
+                        Print();
+                        winner = true;
+                        if (TURN % 2 == 0) {
+                            System.out.println("The winner is " + Game.PLAYER1);
+                            exit.Exit();
+                        } else {
+                            System.out.println("The winner is " + Game.PLAYER2);
+                            exit.Exit();
+                        }
+                    } else if(BOARD[4][0].equals(BOARD[4][2]) && BOARD[4][0].equals(BOARD[4][4]) && BOARD[0][0].equals("X")){
+                        Print();
+                        winner = true;
+                        if (TURN%2 == 0){
+                            System.out.println("The winner is " + Game.PLAYER1);
+                            exit.Exit();
                         }else{
                             System.out.println("The winner is " + Game.PLAYER2);
                             exit.Exit();
                         }
-                    } break;
-            case 1:
-                if(BOARD[2][0].equals(BOARD[2][2]) && BOARD[2][0].equals(BOARD[2][4])){
-                    Print();
-                    winner = true;
-                    if (TURN%2 == 0){
-                        System.out.println("The winner is " + Game.PLAYER1);
-                        exit.Exit();
-                    }else{
-                        System.out.println("The winner is " + Game.PLAYER2);
-                        exit.Exit();
-                    }
-                } break;
-//            case 2:
-//                if(BOARD[4][0].equals(BOARD[4][2]) && BOARD[4][0].equals(BOARD[4][4])){
-//                    Print();
-//                    winner = true;
-//                    if (TURN%2 == 0){
-//                        System.out.println("The winner is " + Game.PLAYER1);
-//                        exit.Exit();
-//                    }else{
-//                        System.out.println("The winner is " + Game.PLAYER2);
-//                        exit.Exit();
-//                    }
-//                } break;
-//            case 3:
-//                if(BOARD[0][0].equals(BOARD[2][0]) && BOARD[0][0].equals(BOARD[4][0])){
-//                    Print();
-//                    winner = true;
-//                    if (TURN%2 == 0){
-//                        System.out.println("The winner is " + Game.PLAYER1);
-//                        exit.Exit();
-//                    }else{
-//                        System.out.println("The winner is " + Game.PLAYER2);
-//                        exit.Exit();
-//                    }
-//                } break;
-               }
-            return winner;
-        }
+                } else if(BOARD[0][0].equals(BOARD[2][0]) && BOARD[0][0].equals(BOARD[4][0]) && BOARD[0][0].equals("X")){
+                        Print();
+                        winner = true;
+                        if (TURN%2 == 0){
+                            System.out.println("The winner is " + Game.PLAYER1);
+                            exit.Exit();
+                        }else{
+                            System.out.println("The winner is " + Game.PLAYER2);
+                            exit.Exit();
+                        }
+                }
+        return winner;
+    }
 }
