@@ -133,7 +133,7 @@ public class Board {
                             exit.Exit();
                         }
                     }
-                }else
+                }
                     if (BOARD[line][colunm].equals("X") && line ==  aux - colunm){
                     counterDSX++;
                     if (counterDSX == 3){
@@ -147,7 +147,8 @@ public class Board {
                             exit.Exit();
                         }
                     }
-                }else if (BOARD[line][colunm].equals("0") && colunm == line){
+                }
+                    if (BOARD[line][colunm].equals("0") && colunm == line){
                     counterDP0++;
                     if (counterDP0 == 3){
                         Print();
@@ -160,7 +161,8 @@ public class Board {
                             exit.Exit();
                         }
                     }
-                }else if (BOARD[line][colunm].equals("0") && line ==  aux - colunm){
+                }
+                    if (BOARD[line][colunm].equals("0") && line ==  aux - colunm){
                     counterDS0++;
                     if (counterDS0 == 3){
                         Print();
