@@ -176,51 +176,40 @@ public class Board {
                         }
                     }
                 }
+
+                if (BOARD[line][colunm].equals("X") && BOARD[line][colunm].isBlank() == false && (line == POSITIONX || colunm == POSITIONY)) {
+                    counterxX++;
+
+                    if (counterxX == 3) {
+                        Print();
+                        winner = true;
+                        if (TURN % 2 == 0) {
+                            System.out.println("The winner is " + Game.PLAYER1);
+                            exit.Exit();
+                        } else {
+                            System.out.println("The winner is " + Game.PLAYER2);
+                            exit.Exit();
+                        }
+                    }
+                }
+
+                if (BOARD[line][colunm].equals("0") && BOARD[line][colunm].isBlank() == false && (line == POSITIONX || colunm == POSITIONY)) {
+                    counterx0++;
+
+                    if (counterx0 == 3) {
+                        Print();
+                        winner = true;
+                        if (TURN % 2 == 0) {
+                            System.out.println("The winner is " + Game.PLAYER1);
+                            exit.Exit();
+                        } else {
+                            System.out.println("The winner is " + Game.PLAYER2);
+                            exit.Exit();
+                        }
+                    }
+                }
             }
          }
-
-
-//                    if (BOARD[0][0].equals(BOARD[0][2]) && BOARD[0][0].equals(BOARD[0][4]) && BOARD[0][0].equals("X")) {
-//                        Print();
-//                        winner = true;
-//                        if (TURN % 2 == 0) {
-//                            System.out.println("The winner is " + Game.PLAYER1);
-//                            exit.Exit();
-//                        } else {
-//                            System.out.println("The winner is " + Game.PLAYER2);
-//                            exit.Exit();
-//                        }
-//                    }else if (BOARD[2][0].equals(BOARD[2][2]) && BOARD[2][0].equals(BOARD[2][4]) && BOARD[0][0].equals("X")) {
-//                        Print();
-//                        winner = true;
-//                        if (TURN % 2 == 0) {
-//                            System.out.println("The winner is " + Game.PLAYER1);
-//                            exit.Exit();
-//                        } else {
-//                            System.out.println("The winner is " + Game.PLAYER2);
-//                            exit.Exit();
-//                        }
-//                    } else if(BOARD[4][0].equals(BOARD[4][2]) && BOARD[4][0].equals(BOARD[4][4]) && BOARD[0][0].equals("X")){
-//                        Print();
-//                        winner = true;
-//                        if (TURN%2 == 0){
-//                            System.out.println("The winner is " + Game.PLAYER1);
-//                            exit.Exit();
-//                        }else{
-//                            System.out.println("The winner is " + Game.PLAYER2);
-//                            exit.Exit();
-//                        }
-//                } else if(BOARD[0][0].equals(BOARD[2][0]) && BOARD[0][0].equals(BOARD[4][0]) && BOARD[0][0].equals("X")){
-//                        Print();
-//                        winner = true;
-//                        if (TURN%2 == 0){
-//                            System.out.println("The winner is " + Game.PLAYER1);
-//                            exit.Exit();
-//                        }else{
-//                            System.out.println("The winner is " + Game.PLAYER2);
-//                            exit.Exit();
-//                        }
-//                }
         return winner;
     }
 }
