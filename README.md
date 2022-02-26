@@ -1,18 +1,17 @@
-## Getting Started
+## Projeto de Jogo da Velha
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Jogo feito em linguagem Java, para treinar conceitos básicos da linguagem.
 
-## Folder Structure
+## Estrutura do projeto
 
-The workspace contains two folders by default, where:
+- `Board`: Estrutura o tabuleiro, ordena as jogadas, realiza a verificação da jogada, mostra a ultima jogada e apresenta o vencedor;
+- `exit`: Finaliza o programa;
+- `game`: Inicia o jogo, apresenta o menu, recebe os nomes dos jogadores;
+- `Instruction`: Ensina o funcionamento do tabuleiro;
+- `Tiktaktoe`: Possui o metodo Main do jogo;
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Criadores
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Murillo José de Azevedo
+Marcio dos Santos
