@@ -1,4 +1,3 @@
-import javax.print.DocFlavor;
 import java.util.Scanner;
 
 public class Board {
@@ -11,18 +10,15 @@ public class Board {
     static int POSITIONX = 0, POSITIONY = 0;
 
     public void Board() {
-
         Initialize();
         Print();
         Turn();
-
     }
 
     static void Turn(){
         int p1, p2;
 
         for (;TURN < 9 ; TURN++){
-
             if (TURN%2 == 0) {
                 System.out.print(Game.PLAYER1 +  " Turn : ");
                 p1 = SCANNER.nextInt();
@@ -67,19 +63,17 @@ public class Board {
     }
 
     static void Print(){
+
         for (int l = 0; l < LINHA; l++) {
             for(int c = 0; c < COLUNA; c++) {
                 if (c % 2 == 0 && l%2 == 0) {
-
                      if(BOARD[l][c] == null) {
                         System.out.print(BOARD[l][c] = " ");
                     }else {
                          System.out.print(BOARD[l][c]);
                      }
-
                 }else if (c % 2 != 0 && l%2 ==0) {
                     System.out.print(BOARD[l][c] = "|");
-
                 } else if(l%2 != 0){
                     System.out.print(BOARD[l][c] = "-");
                 }
@@ -91,16 +85,14 @@ public class Board {
 
     static void Initialize(){
         int aux = 1;
+
         for (int l = 0; l < LINHA; l++) {
             for(int c = 0; c < COLUNA; c++) {
-
                 if (c % 2 != 0 && l%2 == 0) {
                     BOARDInit[l][c] = "|";
-
                 } else if (c % 2 == 0 && l%2 == 0) {
                     BOARDInit[l][c] = String.valueOf(aux);
                     aux++;
-
                 }else if(l%2 != 0){
                     BOARDInit[l][c] = "-";
                 }
@@ -109,17 +101,14 @@ public class Board {
     }
 
     static boolean Winner(int[] x) {
-
         Exit exit = new Exit();
         boolean winner = false;
-
-        int counterxX = 0,counteryX = 0, counterDPX = 0, counterDSX = 0;
-        int counterx0 = 0,countery0 = 0, counterDP0 = 0, counterDS0 = 0;
+        int counterxX = 0, counterDPX = 0, counterDSX = 0;
+        int counterx0 = 0, counterDP0 = 0, counterDS0 = 0;
         int aux = 4;
 
         for(int line = 0; line < LINHA; line++){
             for ( int colunm = 0; colunm < COLUNA; colunm++){
-
                 if (BOARD[line][colunm].equals("X") && colunm == line){
                     counterDPX++;
                     if (counterDPX == 3){
@@ -135,51 +124,49 @@ public class Board {
                     }
                 }
                     if (BOARD[line][colunm].equals("X") && line ==  aux - colunm){
-                    counterDSX++;
-                    if (counterDSX == 3){
-                        Print();
-                        winner = true;
-                        if (TURN % 2 == 0) {
-                            System.out.println("The winner is " + Game.PLAYER1);
-                            exit.Exit();
-                        } else {
-                            System.out.println("The winner is " + Game.PLAYER2);
-                            exit.Exit();
+                        counterDSX++;
+                        if (counterDSX == 3){
+                            Print();
+                            winner = true;
+                            if (TURN % 2 == 0) {
+                                System.out.println("The winner is " + Game.PLAYER1);
+                                exit.Exit();
+                            } else {
+                                System.out.println("The winner is " + Game.PLAYER2);
+                                exit.Exit();
+                            }
                         }
                     }
-                }
                     if (BOARD[line][colunm].equals("0") && colunm == line){
-                    counterDP0++;
-                    if (counterDP0 == 3){
-                        Print();
-                        winner = true;
-                        if (TURN % 2 == 0) {
-                            System.out.println("The winner is " + Game.PLAYER1);
-                            exit.Exit();
-                        } else {
-                            System.out.println("The winner is " + Game.PLAYER2);
-                            exit.Exit();
+                        counterDP0++;
+                        if (counterDP0 == 3){
+                            Print();
+                            winner = true;
+                            if (TURN % 2 == 0) {
+                                System.out.println("The winner is " + Game.PLAYER1);
+                                exit.Exit();
+                            } else {
+                                System.out.println("The winner is " + Game.PLAYER2);
+                                exit.Exit();
+                            }
                         }
                     }
-                }
                     if (BOARD[line][colunm].equals("0") && line ==  aux - colunm){
-                    counterDS0++;
-                    if (counterDS0 == 3){
-                        Print();
-                        winner = true;
-                        if (TURN % 2 == 0) {
-                            System.out.println("The winner is " + Game.PLAYER1);
-                            exit.Exit();
-                        } else {
-                            System.out.println("The winner is " + Game.PLAYER2);
-                            exit.Exit();
+                        counterDS0++;
+                        if (counterDS0 == 3){
+                            Print();
+                            winner = true;
+                            if (TURN % 2 == 0) {
+                                System.out.println("The winner is " + Game.PLAYER1);
+                                exit.Exit();
+                            } else {
+                                System.out.println("The winner is " + Game.PLAYER2);
+                                exit.Exit();
+                            }
                         }
                     }
-                }
-
                 if (BOARD[line][colunm].equals("X") && BOARD[line][colunm].isBlank() == false && (line == POSITIONX || colunm == POSITIONY)) {
                     counterxX++;
-
                     if (counterxX == 3) {
                         Print();
                         winner = true;
@@ -192,10 +179,8 @@ public class Board {
                         }
                     }
                 }
-
                 if (BOARD[line][colunm].equals("0") && BOARD[line][colunm].isBlank() == false && (line == POSITIONX || colunm == POSITIONY)) {
                     counterx0++;
-
                     if (counterx0 == 3) {
                         Print();
                         winner = true;

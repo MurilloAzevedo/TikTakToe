@@ -19,7 +19,6 @@ public class Game {
             Menu(OPTION);
 
         }while (OPTION != 3);
-
     }
 
     static void Menu(int OPTION){
@@ -41,7 +40,6 @@ public class Game {
 
     static void newGame(){
         Name();
-
         Board board = new Board();
         board.Board();
     }
@@ -57,13 +55,5 @@ public class Game {
         System.out.print("Player 2 name: ");
         PLAYER2 = SCANNER.next(); // player 2 uses O
         System.out.println();
-    }
-
-    //Determina o caracter que o jogador vai jogar
-    static void Caracter(){
-        int counter = 0;
-
-        if (counter%2 == 0) {
-        }
     }
 }

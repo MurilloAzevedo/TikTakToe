@@ -5,5 +5,4 @@ public class Exit {
         System.out.println();
         System.exit(0);
     }
-
 }
